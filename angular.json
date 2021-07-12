@@ -5,7 +5,7 @@
       "projectType": "application",
       "root": "apps/frontend",
       "sourceRoot": "apps/frontend/src",
-      "prefix": "penumbra",
+      "prefix": "pb",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -116,6 +116,47 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/frontend-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "ng-components": {
+      "projectType": "library",
+      "root": "libs/ng/components",
+      "sourceRoot": "libs/ng/components/src",
+      "prefix": "pb",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/ng/components"],
+          "options": {
+            "project": "libs/ng/components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ng/components/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/ng/components/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ng/components"],
+          "options": {
+            "jestConfig": "libs/ng/components/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ng/components/src/**/*.ts",
+              "libs/ng/components/src/**/*.html"
+            ]
           }
         }
       }
