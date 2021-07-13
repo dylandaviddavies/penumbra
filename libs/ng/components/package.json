@@ -1,6 +1,15 @@
 {
   "name": "@dylandavies/penumbra-ng-components",
   "version": "0.0.1",
+  "author": "Dylan Davies (https://github.com/dylandaviddavies)",
+  "homepage": "https://github.com/dylandaviddavies/penumbra",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dylandaviddavies/penumbra.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dylandaviddavies/penumbra/issues"
+  },
   "peerDependencies": {
     "@angular/common": "^12.1.1",
     "@angular/core": "^12.1.1"

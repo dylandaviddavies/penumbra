@@ -9,7 +9,9 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/frontend",
             "index": "apps/frontend/src/index.html",
@@ -21,7 +23,9 @@
               "apps/frontend/src/favicon.ico",
               "apps/frontend/src/assets"
             ],
-            "styles": ["apps/frontend/src/styles.scss"],
+            "styles": [
+              "apps/frontend/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -86,7 +90,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/frontend"],
+          "outputs": [
+            "coverage/apps/frontend"
+          ],
           "options": {
             "jestConfig": "apps/frontend/jest.config.js",
             "passWithNoTests": true
@@ -115,7 +121,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/frontend-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/frontend-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
@@ -128,7 +136,9 @@
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
-          "outputs": ["dist/libs/ng/components"],
+          "outputs": [
+            "dist/libs/ng/components"
+          ],
           "options": {
             "project": "libs/ng/components/ng-package.json"
           },
@@ -144,7 +154,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ng/components"],
+          "outputs": [
+            "coverage/libs/ng/components"
+          ],
           "options": {
             "jestConfig": "libs/ng/components/jest.config.js",
             "passWithNoTests": true
@@ -157,6 +169,13 @@
               "libs/ng/components/src/**/*.ts",
               "libs/ng/components/src/**/*.html"
             ]
+          }
+        },
+        "deploy": {
+          "builder": "ngx-deploy-npm:deploy",
+          "options": {
+            "access": "public",
+            "buildTarget": "production"
           }
         }
       }
